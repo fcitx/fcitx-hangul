@@ -1,0 +1,2 @@
+fcitx_add_addon_conf_file(fcitx-hangul.conf)
+fcitx_add_configdesc_file(fcitx-hangul.desc)

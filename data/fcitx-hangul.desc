@@ -1,0 +1,7 @@
+[Hangul/Priority]
+Type=Integer
+DefaultValue=1
+Description=Priority of Hangul
+
+[DescriptionFile]
+LocaleDomain=fcitx-hangul
