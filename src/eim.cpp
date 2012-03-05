@@ -180,7 +180,7 @@ boolean LoadHangulConfig(FcitxHangulConfig* fs)
     if (!configDesc)
         return false;
 
-    FILE *fp = GetXDGFileUserWithPrefix("conf", "fcitx-hangul.config", "rt", NULL);
+    FILE *fp = GetXDGFileUserWithPrefix("conf", "fcitx-hangul.config", "r", NULL);
 
     if (!fp)
     {
@@ -216,7 +216,7 @@ __EXPORT_API void ReloadConfigFcitxHangul(void* arg)
 void SaveHangulConfig(FcitxHangulConfig* fa)
 {
     ConfigFileDesc *configDesc = GetHangulConfigDesc();
-    FILE *fp = GetXDGFileUserWithPrefix("conf", "fcitx-hangul.config", "wt", NULL);
+    FILE *fp = GetXDGFileUserWithPrefix("conf", "fcitx-hangul.config", "w", NULL);
     SaveConfigFileFp(fp, &fa->gconfig, configDesc);
     if (fp)
         fclose(fp);
