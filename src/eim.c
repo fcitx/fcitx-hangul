@@ -66,6 +66,7 @@ static void FcitxHangulToggleHanja(void* arg);
 static boolean FcitxHangulGetHanja(void* arg);
 static void FcitxHangulResetEvent(void* arg);
 static char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int length);
+static void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul);
 
 size_t ucs4_strlen(const ucschar* str)
 {
@@ -484,18 +485,12 @@ void* FcitxHangulCreate (FcitxInstance* instance)
     hangul_ic_connect_callback (hangul->ic, "transition",
                                 FcitxHangulOnTransition, hangul);
     
-    char* retFile;
-    fp = FcitxXDGGetFileWithPrefix("hangul", "hangul.png", "r", &retFile);
-    if (fp)
-        fclose(fp);
-    if (!retFile)
-        retFile = strdup("hangul");
     
     FcitxInstanceRegisterIM(instance,
                     hangul,
                     "hangul",
                     _("Hangul"),
-                    retFile,
+                    "hangul",
                     FcitxHangulInit,
                     FcitxHangulReset,
                     FcitxHangulDoInput,
@@ -508,8 +503,6 @@ void* FcitxHangulCreate (FcitxInstance* instance)
                     "ko_KR"
                    );
     
-    free(retFile);
-    
     FcitxIMEventHook hk;
     hk.arg = hangul;
     hk.func = FcitxHangulResetEvent;
@@ -520,11 +513,13 @@ void* FcitxHangulCreate (FcitxInstance* instance)
         instance,
         hangul,
         "hanja",
-        "Hanja Lock",
-        "Hanja Lock",
+        "",
+        "",
         FcitxHangulToggleHanja,
         FcitxHangulGetHanja
     );
+    
+    FcitxHangulUpdateHanjaStatus(hangul);
     
     return hangul;
 }
@@ -533,7 +528,18 @@ void FcitxHangulToggleHanja(void* arg)
 {
     FcitxHangul* hangul = (FcitxHangul*) arg;
     hangul->fh.hanjaMode = !hangul->fh.hanjaMode;
+    FcitxHangulUpdateHanjaStatus(hangul);
     SaveHangulConfig(&hangul->fh);
+}
+
+void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul)
+{
+    if (hangul->fh.hanjaMode) {
+        FcitxUISetStatusString(hangul->owner, "hanja", "\xe9\x9f\x93", _("Use Hanja"));
+    }
+    else {
+        FcitxUISetStatusString(hangul->owner, "hanja", "\xed\x95\x9c", _("Use Hangul"));
+    }
 }
 
 boolean FcitxHangulGetHanja(void* arg)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 16:33+0800\n"
+"POT-Creation-Date: 2012-03-16 17:05+0800\n"
 "PO-Revision-Date: 2011-08-12 01:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified <kde-i18n-doc@kde.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Ahnmatae"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:24
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:25
 msgid "Auto Reorder"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:496
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:498
 msgid "Hangul"
 msgstr "Hangul"
 
@@ -44,11 +44,11 @@ msgstr "Hangul"
 msgid "Hangul Wrapper For Fcitx"
 msgstr "Fcitx 的 Hangul 封装"
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:34
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:35
 msgid "Hanja Mode"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:19
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:20
 msgid "Hanja Mode Toggle Key"
 msgstr ""
 
@@ -80,7 +80,17 @@ msgstr ""
 msgid "Sebeolsik Yetgeul"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:29
+# unknown
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
+#, fuzzy
+msgid "Use Hangul"
+msgstr "Hangul"
+
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
+msgid "Use Hanja"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
 msgid "Word Commit"
 msgstr ""
 
