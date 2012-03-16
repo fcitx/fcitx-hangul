@@ -39,6 +39,7 @@
 #include <hangul.h>
 
 #include "eim.h"
+#include "keyboard.h"
 
 FCITX_EXPORT_API
 FcitxIMClass ime = {
@@ -47,6 +48,11 @@ FcitxIMClass ime = {
 };
 FCITX_EXPORT_API
 int ABI_VERSION = FCITX_ABI_VERSION;
+
+static const FcitxHotkey FCITX_HANGUL_GRAVE[2] = {
+    {NULL, FcitxKey_grave, FcitxKeyState_None},
+    {NULL, 0, 0},
+};
 
 CONFIG_DESC_DEFINE(GetHangulConfigDesc, "fcitx-hangul.desc")
 
@@ -69,6 +75,28 @@ size_t ucs4_strlen(const ucschar* str)
         str ++;
     }
     return len;
+}
+
+static boolean
+FcitxHangulOnTransition (HangulInputContext     *hic,
+                                  ucschar                 c,
+                                  const ucschar          *preedit,
+                                  void                   *data)
+{
+    FcitxHangul* hangul = (FcitxHangul*) data;
+    if (!hangul->fh.autoReorder) {
+        if (hangul_is_choseong (c)) {
+            if (hangul_ic_has_jungseong (hic) || hangul_ic_has_jongseong (hic))
+                return false;
+        }
+
+        if (hangul_is_jungseong (c)) {
+            if (hangul_ic_has_jongseong (hic))
+               return false;
+        }
+    }
+
+    return true;
 }
 
 char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int length)
@@ -186,9 +214,10 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
         }
     } else {
         keyUsed = hangul_ic_process(hangul->ic, sym);
+        boolean notFlush = false;
         
         const ucschar* str = hangul_ic_get_commit_string (hangul->ic);
-        if (hangul->word_commit || hangul->fh.hanjaMode) {
+        if (hangul->fh.wordCommit || hangul->fh.hanjaMode) {
             const ucschar* hic_preedit;
 
             hic_preedit = hangul_ic_get_preedit_string (hangul->ic);
@@ -200,6 +229,16 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
                     char* commit = FcitxHangulUcs4ToUtf8(hangul, ustring_begin(hangul->preedit), ustring_length(hangul->preedit));
                     if (commit) {
                         FcitxInstanceCleanInputWindowUp(hangul->owner);
+                        size_t len = fcitx_utf8_strlen(commit);
+                        if (len > 0) {
+                            char* p = fcitx_utf8_get_nth_char(commit, len - 1);
+                            if ((strcmp(p, "`") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_HANGUL_GRAVE))
+                            || (strcmp(p, ";") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON))) {
+                                keyUsed = false;
+                                notFlush = true;
+                                *p = 0;
+                            }
+                        }
                         FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
                         free(commit);
                     }
@@ -211,7 +250,14 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
                 char* commit = FcitxHangulUcs4ToUtf8(hangul, str, -1);
                 if (commit) {
                     FcitxInstanceCleanInputWindowUp(hangul->owner);
-                    FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
+                    if ((strcmp(commit, "`") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_HANGUL_GRAVE))
+                     || (strcmp(commit, ";") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON))) {
+                        keyUsed = false;
+                        notFlush = true;
+                    }
+                    else {
+                        FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
+                    }
                     free(commit);
                 }
             }
@@ -219,7 +265,7 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
 
         FcitxHangulGetCandWords(hangul);
         FcitxUIUpdateInputWindow(hangul->owner);
-        if (!keyUsed)
+        if (!keyUsed && !notFlush)
             FcitxHangulFlush (hangul);
     }
     
@@ -253,6 +299,9 @@ void FcitxHangulUpdatePreedit(FcitxHangul* hangul)
             FcitxMessagesAddMessageAtLast(preedit, MSG_INPUT | MSG_HIGHLIGHT, "%s", pre2);
         FcitxMessagesAddMessageAtLast(clientPreedit, MSG_INPUT | MSG_HIGHLIGHT, "%s", pre2);
     }
+    
+    FcitxInputStateSetCursorPos(input, 0);
+    FcitxInputStateSetClientCursorPos(input, 0);
     
     if (pre1)
         free(pre1);
@@ -431,7 +480,9 @@ void* FcitxHangulCreate (FcitxInstance* instance)
     free(path);
 
 
-    hangul->ic = hangul_ic_new(hangul->fh.keyboaryLayout);
+    hangul->ic = hangul_ic_new(keyboard[hangul->fh.keyboardLayout]);
+    hangul_ic_connect_callback (hangul->ic, "transition",
+                                FcitxHangulOnTransition, hangul);
     
     char* retFile;
     fp = FcitxXDGGetFileWithPrefix("hangul", "hangul.png", "r", &retFile);
@@ -535,6 +586,8 @@ boolean LoadHangulConfig(FcitxHangulConfig* fs)
 
 void ConfigHangul(FcitxHangul* hangul)
 {
+    FcitxLog(DEBUG, "Hangul Layout: %s", keyboard[hangul->fh.keyboardLayout]);
+    hangul_ic_select_keyboard(hangul->ic, keyboard[hangul->fh.keyboardLayout]);
 }
 
 void ReloadConfigFcitxHangul(void* arg)

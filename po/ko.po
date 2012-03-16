@@ -1,25 +1,22 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-#
-# Weng Xuetian <wengxt@gmail.com>, 2010, 2011.
+# Weng Xuetian <wengxt@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libhangul 0.0.12\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-16 16:33+0800\n"
-"PO-Revision-Date: 2011-08-12 01:54+0800\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-03-16 16:33+0800\n"
+"Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
+"Language-Team: Korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: unknown
 msgid "Ahnmatae"
-msgstr ""
+msgstr "안마태"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:24
 msgid "Auto Reorder"
@@ -27,22 +24,22 @@ msgstr ""
 
 #: unknown
 msgid "Dubeolsik"
-msgstr ""
+msgstr "두벌식"
 
 #: unknown
 msgid "Dubeolsik Yetgeul"
-msgstr ""
+msgstr "두벌식 옛글"
 
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:496
 msgid "Hangul"
-msgstr "Hangul"
+msgstr ""
 
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
 msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx 的 Hangul 封装"
+msgstr ""
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:34
 msgid "Hanja Mode"
@@ -58,32 +55,29 @@ msgstr ""
 
 #: unknown
 msgid "Romaja"
-msgstr ""
+msgstr "로마자"
 
 #: unknown
 msgid "Sebeolsik 390"
-msgstr ""
+msgstr "세벌식 390"
 
 #: unknown
 msgid "Sebeolsik Dubeol Layout"
-msgstr ""
+msgstr "세벌식 두벌자판"
 
 #: unknown
 msgid "Sebeolsik Final"
-msgstr ""
+msgstr "세벌식 최종"
 
 #: unknown
 msgid "Sebeolsik Noshift"
-msgstr ""
+msgstr "세벌식 순아래"
 
 #: unknown
 msgid "Sebeolsik Yetgeul"
-msgstr ""
+msgstr "세벌식 옛글"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:29
 msgid "Word Commit"
 msgstr ""
 
-# unknown
-#~ msgid "Priority of Hangul"
-#~ msgstr "Hangul 的优先级"

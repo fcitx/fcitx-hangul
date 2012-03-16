@@ -8,6 +8,7 @@ set( fcitx_hangul_sources
     ustring.c
     eim.c
     config.c
+    keyboard.c
     )
 
 add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )

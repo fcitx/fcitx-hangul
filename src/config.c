@@ -22,6 +22,9 @@
 
 /* USE fcitx provided macro to bind config and variable */
 CONFIG_BINDING_BEGIN(FcitxHangulConfig)
+CONFIG_BINDING_REGISTER("Hangul", "Keyboard", keyboardLayout)
 CONFIG_BINDING_REGISTER("Hangul", "HanjaModeToggleKey", hkHanjaMode)
 CONFIG_BINDING_REGISTER("Hangul", "HanjaMode", hanjaMode)
+CONFIG_BINDING_REGISTER("Hangul", "AutoReorder", autoReorder)
+CONFIG_BINDING_REGISTER("Hangul", "WordCommit", wordCommit)
 CONFIG_BINDING_END()

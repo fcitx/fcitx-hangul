@@ -16,7 +16,7 @@ if(HANGUL_INCLUDE_DIR AND HANGUL_LIBRARIES)
 endif(HANGUL_INCLUDE_DIR AND HANGUL_LIBRARIES)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(PC_LIBHANGUL "libhangul")
+pkg_check_modules(PC_LIBHANGUL "libhangul >= 0.0.12")
 
 find_path(HANGUL_MAIN_INCLUDE_DIR
           NAMES hangul.h

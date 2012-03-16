@@ -36,3 +36,5 @@ set(libdir ${LIB_INSTALL_DIR})
 add_subdirectory(src)
 add_subdirectory(data)
 add_subdirectory(po)
+
+add_subdirectory(list)

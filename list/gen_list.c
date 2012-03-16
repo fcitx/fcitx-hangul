@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010~2010 by CSSlayer                                   *
+ *   Copyright (C) 2012~2012 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,49 +18,13 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef EIM_H
-#define EIM_H
-
-#include <fcitx/ime.h>
-#include <fcitx-config/fcitx-config.h>
-#include <fcitx/instance.h>
-#include <fcitx/candidate.h>
 #include <hangul.h>
-#include <iconv.h>
-#include "ustring.h"
-#include "keyboard.h"
+#include <stdio.h>
 
-#define _(x) dgettext("fcitx-hangul", x)
-
-typedef struct _FcitxHangulConfig
+int main(int argc, char* argv[])
 {
-    FcitxGenericConfig gconfig;
-    FcitxHangulKeyboard  keyboardLayout;
-    boolean hanjaMode;
-    boolean autoReorder;
-    boolean wordCommit;
-    FcitxHotkey hkHanjaMode[2];
-} FcitxHangulConfig;
-
-CONFIG_BINDING_DECLARE(FcitxHangulConfig);
-void* FcitxHangulCreate(FcitxInstance* instance);
-void FcitxHangulDestroy(void* arg);
-INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int state);
-INPUT_RETURN_VALUE FcitxHangulGetCandWords (void *arg);
-INPUT_RETURN_VALUE FcitxHangulGetCandWord (void *arg, FcitxCandidateWord* candWord);
-boolean FcitxHangulInit(void*);
-void ReloadConfigFcitxHangul(void*);
-
-typedef struct _FcitxHangul
-{
-    FcitxHangulConfig fh;
-    FcitxInstance* owner;
-    HanjaTable* table;
-    HangulInputContext* ic;
-    HanjaTable* symbolTable;
-    UString* preedit;
-    iconv_t conv;
-    HanjaList* hanjaList;
-} FcitxHangul;
-
-#endif
+    unsigned int nkeyboard = hangul_ic_get_n_keyboards(), i;
+    for (i = 0 ; i < nkeyboard ; i ++)
+        printf("\"%s\" \"%s\"\n", hangul_ic_get_keyboard_name(i), hangul_ic_get_keyboard_id(i));
+    return 0;
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 10:43+0800\n"
+"POT-Creation-Date: 2012-03-16 16:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:4
-msgid "Priority of Hangul"
+msgid "Keyboard Layout"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:19
+msgid "Hanja Mode Toggle Key"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:24
+msgid "Auto Reorder"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:29
+msgid "Word Commit"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:34
+msgid "Hanja Mode"
 msgstr ""
 
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.cpp:141
+#: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:496
 msgid "Hangul"
+msgstr ""
+
+#: unknown
+msgid "Ahnmatae"
+msgstr ""
+
+#: unknown
+msgid "Dubeolsik"
+msgstr ""
+
+#: unknown
+msgid "Dubeolsik Yetgeul"
+msgstr ""
+
+#: unknown
+msgid "Romaja"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik 390"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Dubeol Layout"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Final"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Noshift"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Yetgeul"
 msgstr ""
 
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
