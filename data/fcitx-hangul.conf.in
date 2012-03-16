@@ -6,4 +6,4 @@ Category=InputMethod
 Enabled=True
 Library=fcitx-hangul.so
 Type=SharedLibrary
-Dependency=fcitx-punc
+IMRegisterMethod=ConfigFile

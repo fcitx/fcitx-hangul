@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010~2010 by CSSlayer                                   *
+ *   Copyright (C) 2010~2012 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,47 +18,10 @@
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
 
-#ifndef EIM_H
-#define EIM_H
+#include "eim.h"
 
-#include <fcitx/ime.h>
-#include <fcitx-config/fcitx-config.h>
-#include <fcitx/instance.h>
-#include <fcitx/candidate.h>
-#include <hangul.h>
-#include <iconv.h>
-#include "ustring.h"
-
-#define _(x) dgettext("fcitx-hangul", x)
-
-typedef struct _FcitxHangulConfig
-{
-    FcitxGenericConfig gconfig;
-    char* keyboaryLayout;
-    boolean hanjaMode;
-    FcitxHotkey hkHanjaMode[2];
-} FcitxHangulConfig;
-
-CONFIG_BINDING_DECLARE(FcitxHangulConfig);
-void* FcitxHangulCreate(FcitxInstance* instance);
-void FcitxHangulDestroy(void* arg);
-INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int state);
-INPUT_RETURN_VALUE FcitxHangulGetCandWords (void *arg);
-INPUT_RETURN_VALUE FcitxHangulGetCandWord (void *arg, FcitxCandidateWord* candWord);
-boolean FcitxHangulInit(void*);
-void ReloadConfigFcitxHangul(void*);
-
-typedef struct _FcitxHangul
-{
-    FcitxHangulConfig fh;
-    FcitxInstance* owner;
-    HanjaTable* table;
-    HangulInputContext* ic;
-    HanjaTable* symbolTable;
-    UString* preedit;
-    iconv_t conv;
-    HanjaList* hanjaList;
-    boolean word_commit;
-} FcitxHangul;
-
-#endif
+/* USE fcitx provided macro to bind config and variable */
+CONFIG_BINDING_BEGIN(FcitxHangulConfig)
+CONFIG_BINDING_REGISTER("Hangul", "HanjaModeToggleKey", hkHanjaMode)
+CONFIG_BINDING_REGISTER("Hangul", "HanjaMode", hanjaMode)
+CONFIG_BINDING_END()

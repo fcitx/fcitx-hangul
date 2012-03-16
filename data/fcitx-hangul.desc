@@ -1,7 +1,12 @@
-[Hangul/Priority]
-Type=Integer
-DefaultValue=1
-Description=Priority of Hangul
+[Hangul/HanjaModeToggleKey]
+Type=Hotkey
+DefaultValue=HANGULHANJA F9
+Description=Hanja Mode Toggle Key
+
+[Hangul/HanjaMode]
+Type=Boolean
+DefaultValue=False
+Description=Hanja Mode
 
 [DescriptionFile]
 LocaleDomain=fcitx-hangul

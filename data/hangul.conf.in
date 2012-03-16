@@ -1,0 +1,7 @@
+[InputMethod]
+UniqueName=hangul
+_Name=Hangul
+IconName=hangul
+Priority=1
+LangCode=ko
+Parent=fcitx-hangul

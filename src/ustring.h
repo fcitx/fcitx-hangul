@@ -1,5 +1,6 @@
+
 /***************************************************************************
- *   Copyright (C) 2010~2010 by CSSlayer                                   *
+ *   Copyright (C) 2012~2012 by CSSlayer                                   *
  *   wengxt@gmail.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -17,10 +18,27 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.              *
  ***************************************************************************/
+#ifndef USTRING_H
+#define USTRING_H
 
-#include "eim.h"
+#include <hangul.h>
+#include <fcitx-utils/utarray.h>
 
-/* USE fcitx provided macro to bind config and variable */
-CONFIG_BINDING_BEGIN(FcitxHangulConfig)
-CONFIG_BINDING_REGISTER("Hangul", "Priority", iHangulPriority)
-CONFIG_BINDING_END()
+typedef UT_array UString;
+
+UString* ustring_new();
+UString* ustring_dup(const UString* str);
+void     ustring_delete(UString* str);
+
+void     ustring_clear(UString* str);
+UString* ustring_erase(UString* str, size_t pos, size_t len);
+
+ucschar* ustring_begin(UString* str);
+ucschar* ustring_end(UString* str);
+unsigned ustring_length(const UString* str);
+
+UString* ustring_append(UString* str, const UString* s);
+UString* ustring_append_ucs4(UString* str, const ucschar* s);
+UString* ustring_append_utf8(UString* str, const char* utf8);
+
+#endif
