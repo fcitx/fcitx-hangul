@@ -1,20 +1,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Weng Xuetian <wengxt@gmail.com>, 2010, 2011.
+# Weng Xuetian <wengxt@gmail.com>, 2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-16 17:05+0800\n"
-"PO-Revision-Date: 2011-08-12 01:54+0800\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2012-03-17 14:24+0800\n"
+"Last-Translator: Weng Xuetian <wengxt@gmail.com>\n"
 "Language-Team: Chinese Simplified <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: unknown
@@ -38,23 +38,23 @@ msgstr ""
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:498
 msgid "Hangul"
-msgstr "Hangul"
+msgstr "韩文"
 
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
 msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx 的 Hangul 封装"
+msgstr "Fcitx 的韩文封装"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:35
 msgid "Hanja Mode"
-msgstr ""
+msgstr "汉字模式"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:20
 msgid "Hanja Mode Toggle Key"
-msgstr ""
+msgstr "汉字模式切换键"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:4
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "键盘布局"
 
 #: unknown
 msgid "Romaja"
@@ -82,13 +82,12 @@ msgstr ""
 
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
-#, fuzzy
 msgid "Use Hangul"
-msgstr "Hangul"
+msgstr "使用韩文"
 
 #: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
 msgid "Use Hanja"
-msgstr ""
+msgstr "使用汉字"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
 msgid "Word Commit"
