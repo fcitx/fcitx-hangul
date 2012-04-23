@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Alisha <alisha.4m@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: fcitx\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-16 17:05+0800\n"
+"PO-Revision-Date: 2012-04-01 07:54+0000\n"
+"Last-Translator: Alisha <alisha.4m@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.net/projects/p/fcitx/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:4
+msgid "Keyboard Layout"
+msgstr "鍵盤配置"
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:20
+msgid "Hanja Mode Toggle Key"
+msgstr "漢字模式切換鍵"
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:25
+msgid "Auto Reorder"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
+msgid "Word Commit"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:35
+msgid "Hanja Mode"
+msgstr "漢字模式"
+
+# unknown
+#: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
+#: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:498
+msgid "Hangul"
+msgstr "韓文"
+
+#: unknown
+msgid "Ahnmatae"
+msgstr ""
+
+#: unknown
+msgid "Dubeolsik"
+msgstr ""
+
+#: unknown
+msgid "Dubeolsik Yetgeul"
+msgstr ""
+
+#: unknown
+msgid "Romaja"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik 390"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Dubeol Layout"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Final"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Noshift"
+msgstr ""
+
+#: unknown
+msgid "Sebeolsik Yetgeul"
+msgstr ""
+
+#: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
+msgid "Hangul Wrapper For Fcitx"
+msgstr "Fcitx 的韓文封裝"
+
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
+msgid "Use Hanja"
+msgstr "使用漢字"
+
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
+msgid "Use Hangul"
+msgstr "使用韓文"
