@@ -51,6 +51,13 @@ INPUT_RETURN_VALUE FcitxHangulGetCandWord (void *arg, FcitxCandidateWord* candWo
 boolean FcitxHangulInit(void*);
 void ReloadConfigFcitxHangul(void*);
 
+typedef enum _LookupMethod
+{
+    LOOKUP_METHOD_PREFIX,
+    LOOKUP_METHOD_EXACT,
+    LOOKUP_METHOD_SUFFIX
+} LookupMethod;
+
 typedef struct _FcitxHangul
 {
     FcitxHangulConfig fh;
@@ -61,6 +68,7 @@ typedef struct _FcitxHangul
     UString* preedit;
     iconv_t conv;
     HanjaList* hanjaList;
+    LookupMethod lastLookupMethod;
 } FcitxHangul;
 
 #endif
