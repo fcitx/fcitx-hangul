@@ -41,6 +41,8 @@
 #include "eim.h"
 #include "keyboard.h"
 
+#define MAX_LENGTH 40
+
 FCITX_EXPORT_API
 FcitxIMClass ime = {
     FcitxHangulCreate,
@@ -215,6 +217,9 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             }
         }
     } else {
+        if (ustring_length(hangul->preedit) >= MAX_LENGTH)
+            FcitxHangulFlush(hangul);
+
         keyUsed = hangul_ic_process(hangul->ic, sym);
         boolean notFlush = false;
 
