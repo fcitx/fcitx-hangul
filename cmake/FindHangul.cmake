@@ -29,7 +29,7 @@ find_library(HANGUL_LIBRARIES
 set(HANGUL_INCLUDE_DIR "${HANGUL_MAIN_INCLUDE_DIR}")
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(HANGUL  DEFAULT_MSG 
+find_package_handle_standard_args(Hangul DEFAULT_MSG 
                                   HANGUL_LIBRARIES
                                   HANGUL_MAIN_INCLUDE_DIR
                                   )
