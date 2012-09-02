@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Christopher Meng <cickumqt@gmail.com>, 2012.
 # Weng Xuetian <wengxt@gmail.com>, 2010, 2011, 2012.
@@ -10,34 +10,30 @@ msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-16 17:05+0800\n"
-"PO-Revision-Date: 2012-07-26 10:39+0000\n"
+"PO-Revision-Date: 2012-08-23 03:54+0000\n"
 "Last-Translator: Christopher Meng <cickumqt@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:4
-msgid "Keyboard Layout"
-msgstr "键盘布局"
-
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:20
-msgid "Hanja Mode Toggle Key"
-msgstr "汉字模式切换键"
+#: unknown
+msgid "Ahnmatae"
+msgstr "安马太键盘"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:25
 msgid "Auto Reorder"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
-msgid "Word Commit"
-msgstr ""
+#: unknown
+msgid "Dubeolsik"
+msgstr "Dubeolsik"
 
-#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:35
-msgid "Hanja Mode"
-msgstr "汉字模式"
+#: unknown
+msgid "Dubeolsik Yetgeul"
+msgstr "Dubeolsik Yetgeul"
 
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
@@ -46,21 +42,25 @@ msgstr "汉字模式"
 msgid "Hangul"
 msgstr "韩文"
 
-#: unknown
-msgid "Ahnmatae"
-msgstr "安马太键盘"
+#: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
+msgid "Hangul Wrapper For Fcitx"
+msgstr "Fcitx 的韩文封装"
 
-#: unknown
-msgid "Dubeolsik"
-msgstr ""
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:35
+msgid "Hanja Mode"
+msgstr "汉字模式"
 
-#: unknown
-msgid "Dubeolsik Yetgeul"
-msgstr ""
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:20
+msgid "Hanja Mode Toggle Key"
+msgstr "汉字模式切换键"
+
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:4
+msgid "Keyboard Layout"
+msgstr "键盘布局"
 
 #: unknown
 msgid "Romaja"
-msgstr ""
+msgstr "Romaja"
 
 #: unknown
 msgid "Sebeolsik 390"
@@ -68,28 +68,28 @@ msgstr "Sebeolsik 390"
 
 #: unknown
 msgid "Sebeolsik Dubeol Layout"
-msgstr ""
+msgstr "Sebeolsik Dubeol 布局"
 
 #: unknown
 msgid "Sebeolsik Final"
-msgstr ""
+msgstr "Sebeolsik Final"
 
 #: unknown
 msgid "Sebeolsik Noshift"
-msgstr ""
+msgstr "Sebeolsik Noshift"
 
 #: unknown
 msgid "Sebeolsik Yetgeul"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:2
-msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx 的韩文封装"
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
+msgid "Use Hangul"
+msgstr "使用韩文"
 
 #: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
 msgid "Use Hanja"
 msgstr "使用汉字"
 
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
-msgid "Use Hangul"
-msgstr "使用韩文"
+#: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
+msgid "Word Commit"
+msgstr ""
