@@ -4,20 +4,22 @@
 #
 # Translators:
 # Christopher Meng <cickumqt@gmail.com>, 2012.
-# Weng Xuetian <wengxt@gmail.com>, 2010, 2011, 2012.
+# marguerite su <i@marguerite.su>, 2012.
+#   <wengxt@gmail.com>, 2012.
+# Weng Xuetian <wengxt@gmail.com>, 2010-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-16 17:05+0800\n"
-"PO-Revision-Date: 2012-08-23 03:54+0000\n"
-"Last-Translator: Christopher Meng <cickumqt@gmail.com>\n"
+"PO-Revision-Date: 2012-09-20 03:06+0000\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: unknown
 msgid "Ahnmatae"
@@ -25,7 +27,7 @@ msgstr "安马太键盘"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:25
 msgid "Auto Reorder"
-msgstr ""
+msgstr "自动排序"
 
 #: unknown
 msgid "Dubeolsik"
@@ -92,4 +94,4 @@ msgstr "使用汉字"
 
 #: /home/saber/Develop/fcitx-hangul/data/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr ""
+msgstr "单词提交"
