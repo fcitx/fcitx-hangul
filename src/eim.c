@@ -69,7 +69,6 @@ static boolean FcitxHangulGetHanja(void* arg);
 static void FcitxHangulResetEvent(void* arg);
 static char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int length);
 static void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul);
-static void FcitxHangulUpdateSurroundingText(void* arg);
 
 size_t ucs4_strlen(const ucschar* str)
 {
@@ -636,7 +635,6 @@ void* FcitxHangulCreate (FcitxInstance* instance)
 
     free(path);
 
-
     hangul->ic = hangul_ic_new(keyboard[hangul->fh.keyboardLayout]);
     hangul_ic_connect_callback (hangul->ic, "transition",
                                 FcitxHangulOnTransition, hangul);
@@ -648,7 +646,6 @@ void* FcitxHangulCreate (FcitxInstance* instance)
     iface.DoInput = FcitxHangulDoInput;
     iface.GetCandWords = FcitxHangulGetCandWords;
     iface.ReloadConfig = ReloadConfigFcitxHangul;
-    iface.UpdateSurroundingText = FcitxHangulUpdateSurroundingText;
 
     FcitxInstanceRegisterIMv2(instance,
                     hangul,
@@ -784,12 +781,4 @@ void FcitxHangulResetEvent(void* arg)
     else {
         FcitxUISetStatusVisable(hangul->owner, "hanja", true);
     }
-}
-
-void FcitxHangulUpdateSurroundingText(void* arg)
-{
-    FcitxHangul* hangul = (FcitxHangul*) arg;
-    FcitxInstanceCleanInputWindow(hangul->owner);
-    FcitxHangulGetCandWords(hangul);
-    FcitxUIUpdateInputWindow(hangul->owner);
 }
