@@ -62,7 +62,8 @@ boolean LoadHangulConfig(FcitxHangulConfig* fs);
 static void SaveHangulConfig(FcitxHangulConfig* fs);
 static void ConfigHangul(FcitxHangul* hangul);
 static void FcitxHangulUpdatePreedit(FcitxHangul* hangul);
-static void FcitxHangulUpdateLookupTable(FcitxHangul* hangul);
+static void FcitxHangulCleanLookupTable(FcitxHangul* hangul);
+static void FcitxHangulUpdateLookupTable(FcitxHangul* hangul, boolean checkSurrounding);
 static void FcitxHangulFlush(FcitxHangul* hangul);
 static void FcitxHangulToggleHanja(void* arg);
 static boolean FcitxHangulGetHanja(void* arg);
@@ -70,7 +71,14 @@ static void FcitxHangulResetEvent(void* arg);
 static char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int length);
 static void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul);
 
-size_t ucs4_strlen(const ucschar* str)
+static inline void FcitxHangulFreeHanjaList(FcitxHangul* hangul) {
+    if (hangul->hanjaList) {
+        hanja_list_delete (hangul->hanjaList);
+        hangul->hanjaList = NULL;
+    }
+}
+
+static inline size_t ucs4_strlen(const ucschar* str)
 {
     size_t len = 0;
     while(*str) {
@@ -130,6 +138,9 @@ void FcitxHangulReset (void* arg)
     FcitxHangul* hangul = (FcitxHangul*) arg;
     ustring_clear(hangul->preedit);
     hangul_ic_reset(hangul->ic);
+    if (hangul->hanjaList) {
+        FcitxHangulCleanLookupTable(hangul);
+    }
 }
 
 /**
@@ -145,11 +156,13 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
     FcitxHangul* hangul = (FcitxHangul*) arg;
 
     if (FcitxHotkeyIsHotKey(sym, state, hangul->fh.hkHanjaMode)) {
-        FcitxUIUpdateStatus(hangul->owner, "hanja");
-        if (hangul->fh.hkHanjaMode)
-            return IRV_DISPLAY_CANDWORDS;
-        else
-            return IRV_DO_NOTHING;
+        if (hangul->hanjaList == NULL) {
+            FcitxHangulUpdateLookupTable(hangul, true);
+        }
+        else {
+            FcitxHangulCleanLookupTable(hangul);
+        }
+        return IRV_DISPLAY_MESSAGE;
     }
 
     if (sym == FcitxKey_Shift_L || sym == FcitxKey_Shift_R)
@@ -200,8 +213,8 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             return FcitxCandidateWordChooseByIndex(FcitxInputStateGetCandidateList(input), 0);
         }
 
-         if (!hangul->fh.hanjaMode) {
-            return IRV_DONOT_PROCESS;
+        if (!hangul->fh.hanjaMode) {
+            FcitxHangulCleanLookupTable(hangul);
         }
     }
 
@@ -287,6 +300,7 @@ void FcitxHangulUpdatePreedit(FcitxHangul* hangul)
     FcitxMessages* preedit = FcitxInputStateGetPreedit(input);
     FcitxMessages* clientPreedit = FcitxInputStateGetClientPreedit(input);
     FcitxInstanceCleanInputWindowUp(hangul->owner);
+    FcitxInputStateSetShowCursor(input, true);
     const ucschar *hic_preedit = hangul_ic_get_preedit_string (hangul->ic);
 
     char* pre1 = FcitxHangulUcs4ToUtf8(hangul, ustring_begin(hangul->preedit), ustring_length(hangul->preedit));
@@ -294,20 +308,28 @@ void FcitxHangulUpdatePreedit(FcitxHangul* hangul)
     FcitxInputContext* ic = FcitxInstanceGetCurrentIC(hangul->owner);
     FcitxProfile* profile = FcitxInstanceGetProfile(hangul->owner);
 
+    size_t preeditLen = 0;
+
+    boolean clientPreeditNotAvail = (ic && ((ic->contextCaps & CAPACITY_PREEDIT) == 0 || !profile->bUsePreedit));
+
     if (pre1 && pre1[0] != 0) {
-        if (ic && ((ic->contextCaps & CAPACITY_PREEDIT) == 0 || !profile->bUsePreedit))
+        size_t len1 = strlen(pre1);
+        if (clientPreeditNotAvail)
             FcitxMessagesAddMessageAtLast(preedit, MSG_INPUT, "%s", pre1);
         FcitxMessagesAddMessageAtLast(clientPreedit, MSG_INPUT, "%s", pre1);
+        preeditLen += len1;
     }
 
     if (pre2 && pre2[0] != '\0') {
-        if (ic && ((ic->contextCaps & CAPACITY_PREEDIT) == 0 || !profile->bUsePreedit))
+        size_t len2 = strlen(pre2);
+        if (clientPreeditNotAvail)
             FcitxMessagesAddMessageAtLast(preedit, MSG_INPUT | MSG_HIGHLIGHT, "%s", pre2);
         FcitxMessagesAddMessageAtLast(clientPreedit, MSG_INPUT | MSG_HIGHLIGHT, "%s", pre2);
+        preeditLen += len2;
     }
 
-    FcitxInputStateSetCursorPos(input, 0);
-    FcitxInputStateSetClientCursorPos(input, 0);
+    FcitxInputStateSetCursorPos(input, clientPreeditNotAvail ? preeditLen : 0);
+    FcitxInputStateSetClientCursorPos(input, preeditLen);
 
     if (pre1)
         free(pre1);
@@ -388,7 +410,12 @@ GetSubstring (const char* str, long p1, long p2)
     return substring;
 }
 
-void FcitxHangulUpdateLookupTable(FcitxHangul* hangul)
+void FcitxHangulCleanLookupTable(FcitxHangul* hangul) {
+    FcitxInstanceCleanInputWindowDown(hangul->owner);
+    FcitxHangulFreeHanjaList(hangul);
+}
+
+void FcitxHangulUpdateLookupTable(FcitxHangul* hangul, boolean checkSurrounding)
 {
     char* surroundingStr = NULL;
     char* utf8;
@@ -399,10 +426,7 @@ void FcitxHangulUpdateLookupTable(FcitxHangul* hangul)
     unsigned int cursorPos;
     unsigned int anchorPos;
 
-    if (hangul->hanjaList != NULL) {
-        hanja_list_delete (hangul->hanjaList);
-        hangul->hanjaList = NULL;
-    }
+    FcitxHangulFreeHanjaList(hangul);
 
     hic_preedit = hangul_ic_get_preedit_string (hangul->ic);
 
@@ -429,14 +453,16 @@ void FcitxHangulUpdateLookupTable(FcitxHangul* hangul)
             lookupMethod = LOOKUP_METHOD_SUFFIX;
         }
     } else {
-        FcitxInstanceGetSurroundingText(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), &surroundingStr, &cursorPos, &anchorPos);
-        if (cursorPos != anchorPos) {
-            // If we have selection in surrounding text, we use that.
-            hanjaKey = GetSubstring(surroundingStr, cursorPos, anchorPos);
-            lookupMethod = LOOKUP_METHOD_EXACT;
-        } else {
-            hanjaKey = GetSubstring (surroundingStr, (long) cursorPos - 64, cursorPos);
-            lookupMethod = LOOKUP_METHOD_SUFFIX;
+        if (checkSurrounding) {
+            FcitxInstanceGetSurroundingText(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), &surroundingStr, &cursorPos, &anchorPos);
+            if (cursorPos != anchorPos) {
+                // If we have selection in surrounding text, we use that.
+                hanjaKey = GetSubstring(surroundingStr, cursorPos, anchorPos);
+                lookupMethod = LOOKUP_METHOD_EXACT;
+            } else {
+                hanjaKey = GetSubstring (surroundingStr, (long) cursorPos - 64, cursorPos);
+                lookupMethod = LOOKUP_METHOD_SUFFIX;
+            }
         }
     }
 
@@ -484,7 +510,7 @@ void FcitxHangulFlush(FcitxHangul* hangul)
 {
     const ucschar *str;
 
-    FcitxInstanceCleanInputWindowDown(hangul->owner);
+    FcitxHangulCleanLookupTable(hangul);
 
     str = hangul_ic_flush (hangul->ic);
 
@@ -523,7 +549,9 @@ INPUT_RETURN_VALUE FcitxHangulGetCandWords(void* arg)
     FcitxHangulUpdatePreedit(hangul);
 
     if (hangul->fh.hanjaMode) {
-        FcitxHangulUpdateLookupTable(hangul);
+        FcitxHangulUpdateLookupTable(hangul, false);
+    } else {
+        FcitxHangulCleanLookupTable(hangul);
     }
 
     return IRV_DISPLAY_CANDWORDS;
@@ -557,11 +585,13 @@ INPUT_RETURN_VALUE FcitxHangulGetCandWord (void* arg, FcitxCandidateWord* candWo
     preedit_len = ustring_length(hangul->preedit);
     hic_preedit_len = ucs4_strlen (hic_preedit);
 
+    boolean surrounding = false;
     if (hangul->lastLookupMethod == LOOKUP_METHOD_PREFIX) {
         if (preedit_len == 0 && hic_preedit_len == 0) {
             /* remove surrounding_text */
             if (key_len > 0) {
                 FcitxInstanceDeleteSurroundingText (hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), -key_len , key_len);
+                surrounding = true;
             }
         } else {
             /* remove preedit text */
@@ -594,13 +624,21 @@ INPUT_RETURN_VALUE FcitxHangulGetCandWord (void* arg, FcitxCandidateWord* candWo
         }
 
         /* remove surrounding_text */
-        if (key_len > 0) {
+        if (LOOKUP_METHOD_EXACT != hangul->lastLookupMethod && key_len > 0) {
             FcitxInstanceDeleteSurroundingText (hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), -key_len , key_len);
+            surrounding = true;
         }
     }
 
     FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), value);
-    return IRV_DISPLAY_CANDWORDS;
+    if (surrounding) {
+        FcitxInstanceCleanInputWindowUp(hangul->owner);
+        FcitxHangulCleanLookupTable(hangul);
+        return IRV_DISPLAY_MESSAGE;
+    }
+    else {
+        return IRV_DISPLAY_CANDWORDS;
+    }
 }
 
 /**
@@ -694,6 +732,9 @@ void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul)
     else {
         FcitxUISetStatusString(hangul->owner, "hanja", "\xed\x95\x9c", _("Use Hangul"));
     }
+    FcitxHangulFlush(hangul);
+    FcitxHangulUpdatePreedit(hangul);
+    FcitxUIUpdateInputWindow(hangul->owner);
 }
 
 boolean FcitxHangulGetHanja(void* arg)
