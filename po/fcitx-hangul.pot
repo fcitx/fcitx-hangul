@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 17:05+0800\n"
+"POT-Creation-Date: 2013-01-18 15:10-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:498
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:691
 msgid "Hangul"
 msgstr ""
 
@@ -84,10 +84,10 @@ msgstr ""
 msgid "Hangul Wrapper For Fcitx"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:730
 msgid "Use Hanja"
 msgstr ""
 
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:733
 msgid "Use Hangul"
 msgstr ""

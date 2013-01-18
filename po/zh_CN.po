@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 17:05+0800\n"
-"PO-Revision-Date: 2012-09-20 03:06+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2013-01-18 15:10-0500\n"
+"PO-Revision-Date: 2012-11-08 01:11+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) <fcitx-dev@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Dubeolsik Yetgeul"
 # unknown
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/fcitx-hangul.conf.in.h:1
 #: /home/saber/Develop/fcitx-hangul/build/po/tmp/hangul.conf.in.h:1
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:498
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:691
 msgid "Hangul"
 msgstr "韩文"
 
@@ -82,13 +82,13 @@ msgstr "Sebeolsik Noshift"
 
 #: unknown
 msgid "Sebeolsik Yetgeul"
-msgstr ""
+msgstr "三套式古文"
 
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:549
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:733
 msgid "Use Hangul"
 msgstr "使用韩文"
 
-#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:546
+#: /home/saber/Develop/fcitx-hangul/build/po/../..//src/eim.c:730
 msgid "Use Hanja"
 msgstr "使用汉字"
 
