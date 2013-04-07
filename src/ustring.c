@@ -103,7 +103,7 @@ ustring_append_utf8(UString* str, const char* utf8)
 {
     while (*utf8 != '\0') {
         ucschar c;
-        utf8 = fcitx_utf8_get_char(utf8, (int*) &c);
+        utf8 = fcitx_utf8_get_char(utf8, (uint32_t*) &c);
         utarray_push_back(str, &c);
     }
     return str;
