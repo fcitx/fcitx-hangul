@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-#   <wengxt@gmail.com>, 2012.
-# Weng Xuetian <wengxt@gmail.com>, 2012.
+# しろう <>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
 "POT-Creation-Date: 2013-04-18 13:37-0400\n"
-"PO-Revision-Date: 2012-03-26 03:02+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/fcitx/language/"
-"ko/)\n"
-"Language: ko\n"
+"PO-Revision-Date: 2013-04-14 13:10+0000\n"
+"Last-Translator: しろう <>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
+"ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,58 +22,58 @@ msgstr ""
 # unknown
 #: src/eim.c:691 src/fcitx-hangul.conf.in:3
 msgid "Hangul"
-msgstr "한글"
+msgstr "ハングル"
 
 #: src/fcitx-hangul.conf.in:4
 msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx의 한글 표지"
+msgstr "Fcitx 用 ハングルラッパー"
 
 #: src/eim.c:733
 msgid "Use Hangul"
-msgstr "한글 사용"
+msgstr "ハングルを使う"
 
 #: src/eim.c:730
 msgid "Use Hanja"
-msgstr "한자 사용"
+msgstr "朝鮮漢字を使う"
 
 #~ msgid "Ahnmatae"
-#~ msgstr "안마태"
+#~ msgstr "Ahnmatae"
 
 #~ msgid "Auto Reorder"
-#~ msgstr "자동 재배열"
+#~ msgstr "自動並び替え"
 
 #~ msgid "Dubeolsik"
-#~ msgstr "두벌식"
+#~ msgstr "Dubeolsik"
 
 #~ msgid "Dubeolsik Yetgeul"
-#~ msgstr "두벌식 옛글"
+#~ msgstr "Dubeolsik Yetgeul"
 
 #~ msgid "Hanja Mode"
-#~ msgstr "한자 모드"
+#~ msgstr "朝鮮漢字モード"
 
 #~ msgid "Hanja Mode Toggle Key"
-#~ msgstr "한자 모드 변환 키"
+#~ msgstr "朝鮮漢字モードのトリガーとなるキー"
 
 #~ msgid "Keyboard Layout"
-#~ msgstr "자판 배열"
+#~ msgstr "キーボードレイアウト"
 
 #~ msgid "Romaja"
-#~ msgstr "로마자"
+#~ msgstr "Romaja"
 
 #~ msgid "Sebeolsik 390"
-#~ msgstr "세벌식 390"
+#~ msgstr "Sebeolsik 390"
 
 #~ msgid "Sebeolsik Dubeol Layout"
-#~ msgstr "세벌식 두벌자판"
+#~ msgstr "Sebeolsik Dubeol レイアウト"
 
 #~ msgid "Sebeolsik Final"
-#~ msgstr "세벌식 최종"
+#~ msgstr "Sebeolsik Final"
 
 #~ msgid "Sebeolsik Noshift"
-#~ msgstr "세벌식 순아래"
+#~ msgstr "Sebeolsik Noshift"
 
 #~ msgid "Sebeolsik Yetgeul"
-#~ msgstr "세벌식 옛글"
+#~ msgstr "Sebeolsik Yetgeul"
 
 #~ msgid "Word Commit"
-#~ msgstr "워드 커밋"
+#~ msgstr "単語確定"

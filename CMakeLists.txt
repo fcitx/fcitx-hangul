@@ -5,7 +5,7 @@ project(fcitx-hangul)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 FIND_PACKAGE(Gettext REQUIRED)
-FIND_PACKAGE(Fcitx 4.2.3 REQUIRED)
+FIND_PACKAGE(Fcitx 4.2.7 REQUIRED)
 find_package(Hangul REQUIRED)
 
 # uninstall target
@@ -34,8 +34,7 @@ configure_file(
 
 set(libdir ${LIB_INSTALL_DIR})
 
+add_subdirectory(po)
 add_subdirectory(src)
 add_subdirectory(data)
-add_subdirectory(po)
-
 add_subdirectory(list)
