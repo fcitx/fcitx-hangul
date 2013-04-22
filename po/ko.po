@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-#   <wengxt@gmail.com>, 2012.
-# Weng Xuetian <wengxt@gmail.com>, 2012.
+# Xuetian Weng <wengxt@gmail.com>, 2012
+# Xuetian Weng <wengxt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-04-18 13:37-0400\n"
-"PO-Revision-Date: 2012-03-26 03:02+0000\n"
+"POT-Creation-Date: 2013-04-21 20:16-0400\n"
+"PO-Revision-Date: 2013-04-18 19:41+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fcitx/language/"
 "ko/)\n"
@@ -20,7 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-# unknown
 #: src/eim.c:691 src/fcitx-hangul.conf.in:3
 msgid "Hangul"
 msgstr "한글"
@@ -36,45 +35,3 @@ msgstr "한글 사용"
 #: src/eim.c:730
 msgid "Use Hanja"
 msgstr "한자 사용"
-
-#~ msgid "Ahnmatae"
-#~ msgstr "안마태"
-
-#~ msgid "Auto Reorder"
-#~ msgstr "자동 재배열"
-
-#~ msgid "Dubeolsik"
-#~ msgstr "두벌식"
-
-#~ msgid "Dubeolsik Yetgeul"
-#~ msgstr "두벌식 옛글"
-
-#~ msgid "Hanja Mode"
-#~ msgstr "한자 모드"
-
-#~ msgid "Hanja Mode Toggle Key"
-#~ msgstr "한자 모드 변환 키"
-
-#~ msgid "Keyboard Layout"
-#~ msgstr "자판 배열"
-
-#~ msgid "Romaja"
-#~ msgstr "로마자"
-
-#~ msgid "Sebeolsik 390"
-#~ msgstr "세벌식 390"
-
-#~ msgid "Sebeolsik Dubeol Layout"
-#~ msgstr "세벌식 두벌자판"
-
-#~ msgid "Sebeolsik Final"
-#~ msgstr "세벌식 최종"
-
-#~ msgid "Sebeolsik Noshift"
-#~ msgstr "세벌식 순아래"
-
-#~ msgid "Sebeolsik Yetgeul"
-#~ msgstr "세벌식 옛글"
-
-#~ msgid "Word Commit"
-#~ msgstr "워드 커밋"
