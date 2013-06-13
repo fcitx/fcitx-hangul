@@ -14,6 +14,8 @@ set( fcitx_hangul_sources
 add_definitions( -DLOCALEDIR=\"${CMAKE_INSTALL_PREFIX}/share/locale\" )
 
 fcitx_add_addon_full(hangul
+   DESC
+   IM_CONFIG hangul.conf
    SOURCES ${fcitx_hangul_sources}
    LINK_LIBS ${HANGUL_LIBRARIES}
    )
