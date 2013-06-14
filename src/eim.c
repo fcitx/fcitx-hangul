@@ -755,6 +755,7 @@ void* FcitxHangulCreate (FcitxInstance* instance)
     iface.DoInput = FcitxHangulDoInput;
     iface.GetCandWords = FcitxHangulGetCandWords;
     iface.ReloadConfig = ReloadConfigFcitxHangul;
+    iface.OnClose = FcitxHangulOnClose;
 
     FcitxInstanceRegisterIMv2(instance,
                     hangul,
@@ -786,6 +787,18 @@ void* FcitxHangulCreate (FcitxInstance* instance)
 
     return hangul;
 }
+
+void FcitxHangulOnClose(void* arg, FcitxIMCloseEventType event)
+{
+    FcitxHangul* hangul = arg;
+    if (event == CET_LostFocus) {
+    } else if (event == CET_ChangeByInactivate) {
+        FcitxHangulFlush(hangul);
+    } else if (event == CET_ChangeByUser) {
+        FcitxHangulFlush(hangul);
+    }
+}
+
 
 void FcitxHangulToggleHanja(void* arg)
 {

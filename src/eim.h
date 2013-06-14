@@ -48,6 +48,7 @@ void FcitxHangulDestroy(void* arg);
 INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int state);
 INPUT_RETURN_VALUE FcitxHangulGetCandWords (void *arg);
 INPUT_RETURN_VALUE FcitxHangulGetCandWord (void *arg, FcitxCandidateWord* candWord);
+void FcitxHangulOnClose(void* arg, FcitxIMCloseEventType event);
 boolean FcitxHangulInit(void*);
 void ReloadConfigFcitxHangul(void*);
 
