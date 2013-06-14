@@ -169,7 +169,15 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
     if (sym == FcitxKey_Shift_L || sym == FcitxKey_Shift_R)
         return IRV_TO_PROCESS;
 
-    int s = hangul->fh.hkHanjaMode[0].state | hangul->fh.hkHanjaMode[1].state;
+    FcitxGlobalConfig* config = FcitxInstanceGetGlobalConfig(hangul->owner);
+    const FcitxHotkey* prevPage = FcitxConfigPrevPageKey(instance, config);
+    const FcitxHotkey* nextPage = FcitxConfigNextPageKey(instance, config);
+    int s = hangul->fh.hkHanjaMode[0].state | hangul->fh.hkHanjaMode[1].state
+          | config->prevWord[0].state | config->prevWord[1].state
+          | config->nextWord[0].state | config->nextWord[1].state
+          | prevPage[0].state | prevPage[1].state
+          | nextPage[0].state | nextPage[1].state;
+
     if (s & FcitxKeyState_Ctrl) {
         if (sym == FcitxKey_Control_L || sym == FcitxKey_Control_R)
             return IRV_TO_PROCESS;
@@ -191,21 +199,12 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             return IRV_TO_PROCESS;
     }
 
-    s = FcitxKeyState_Ctrl | FcitxKeyState_Alt | FcitxKeyState_Shift | FcitxKeyState_Super | FcitxKeyState_Hyper;
-    if (state & s) {
-        FcitxHangulFlush (hangul);
-        return IRV_TO_PROCESS;
-    }
-
     FcitxInputState* input = FcitxInstanceGetInputState(hangul->owner);
     FcitxCandidateWordList* candList = FcitxInputStateGetCandidateList(input);
     int candSize = FcitxCandidateWordGetListSize(candList);
 
     if (candSize > 0) {
-        FcitxGlobalConfig* config = FcitxInstanceGetGlobalConfig(hangul->owner);
-
-        if (FcitxHotkeyIsHotKey(sym, state,
-                                FcitxConfigPrevPageKey(instance, config))) {
+        if (FcitxHotkeyIsHotKey(sym, state, prevPage)) {
             if (FcitxCandidateWordHasPrev(candList)) {
                 FcitxCandidateWordGetFocus(candList, true);
             }
@@ -215,8 +214,7 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             } else {
                 return IRV_DO_NOTHING;
             }
-        } else if (FcitxHotkeyIsHotKey(sym, state,
-                                       FcitxConfigNextPageKey(instance, config))) {
+        } else if (FcitxHotkeyIsHotKey(sym, state, nextPage)) {
             if (FcitxCandidateWordHasNext(candList)) {
                 FcitxCandidateWordGetFocus(candList, true);
             }
@@ -248,7 +246,7 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             }
             FcitxCandidateWordSetFocus(
                 candList, FcitxCandidateWordGetIndex(candList,
-                                                    candWord));
+                                                     candWord));
         }
         if (candWord) {
             FcitxCandidateWordSetType(candWord, MSG_CANDIATE_CURSOR);
@@ -276,6 +274,14 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
         }
     }
 
+    s = FcitxKeyState_Ctrl | FcitxKeyState_Alt | FcitxKeyState_Shift | FcitxKeyState_Super | FcitxKeyState_Hyper;
+    if (state & s) {
+        FcitxHangulFlush (hangul);
+        FcitxHangulUpdatePreedit(hangul);
+        FcitxUIUpdateInputWindow(hangul->owner);
+        return IRV_TO_PROCESS;
+    }
+
     bool keyUsed = false;
     if (FcitxHotkeyIsHotKey(sym, state, FCITX_BACKSPACE)) {
         keyUsed = hangul_ic_backspace (hangul->ic);
@@ -287,8 +293,9 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             }
         }
     } else {
-        if (ustring_length(hangul->preedit) >= MAX_LENGTH)
+        if (ustring_length(hangul->preedit) >= MAX_LENGTH) {
             FcitxHangulFlush(hangul);
+        }
 
         keyUsed = hangul_ic_process(hangul->ic, sym);
         boolean notFlush = false;
@@ -470,6 +477,7 @@ GetSubstring (const char* str, long p1, long p2)
 
 void FcitxHangulCleanLookupTable(FcitxHangul* hangul) {
     FcitxInstanceCleanInputWindowDown(hangul->owner);
+    // FcitxUIUpdateInputWindow(hangul->owner);
     FcitxHangulFreeHanjaList(hangul);
 }
 
