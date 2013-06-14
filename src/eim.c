@@ -154,6 +154,7 @@ void FcitxHangulReset (void* arg)
 INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int state)
 {
     FcitxHangul* hangul = (FcitxHangul*) arg;
+    FcitxInstance* instance = hangul->owner;
 
     if (FcitxHotkeyIsHotKey(sym, state, hangul->fh.hkHanjaMode)) {
         if (hangul->hanjaList == NULL) {
@@ -203,14 +204,71 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
     if (candSize > 0) {
         FcitxGlobalConfig* config = FcitxInstanceGetGlobalConfig(hangul->owner);
 
-        if (FcitxHotkeyIsHotKey(sym, state, config->hkPrevPage) || FcitxHotkeyIsHotKey(sym, state, config->hkNextPage))
-            return IRV_TO_PROCESS;
+        if (FcitxHotkeyIsHotKey(sym, state,
+                                FcitxConfigPrevPageKey(instance, config))) {
+            if (FcitxCandidateWordHasPrev(candList)) {
+                FcitxCandidateWordGetFocus(candList, true);
+            }
+            if (FcitxCandidateWordGoPrevPage(candList)) {
+                FcitxCandidateWordSetType(FcitxCandidateWordGetByIndex(candList, 0), MSG_CANDIATE_CURSOR);
+                return IRV_FLAG_UPDATE_INPUT_WINDOW;
+            } else {
+                return IRV_DO_NOTHING;
+            }
+        } else if (FcitxHotkeyIsHotKey(sym, state,
+                                       FcitxConfigNextPageKey(instance, config))) {
+            if (FcitxCandidateWordHasNext(candList)) {
+                FcitxCandidateWordGetFocus(candList, true);
+            }
+            if (FcitxCandidateWordGoNextPage(candList)) {
+                FcitxCandidateWordSetType(FcitxCandidateWordGetByIndex(candList, 0), MSG_CANDIATE_CURSOR);
+                return IRV_FLAG_UPDATE_INPUT_WINDOW;
+            } else {
+                return IRV_DO_NOTHING;
+            }
+        }
+
+        FcitxCandidateWord* candWord = NULL;
+        if (FcitxHotkeyIsHotKey(sym, state, config->nextWord)) {
+            candWord = FcitxCandidateWordGetFocus(candList, true);
+            candWord = FcitxCandidateWordGetNext(candList, candWord);
+            if (!candWord) {
+                FcitxCandidateWordSetPage(candList, 0);
+                candWord = FcitxCandidateWordGetCurrentWindow(candList);
+            } else {
+                FcitxCandidateWordSetFocus(
+                    candList, FcitxCandidateWordGetIndex(candList,
+                                                        candWord));
+            }
+        } else if (FcitxHotkeyIsHotKey(sym, state, config->prevWord)) {
+            candWord = FcitxCandidateWordGetFocus(candList, true);
+            candWord = FcitxCandidateWordGetPrev(candList, candWord);
+            if (!candWord) {
+                candWord = FcitxCandidateWordGetLast(candList);
+            }
+            FcitxCandidateWordSetFocus(
+                candList, FcitxCandidateWordGetIndex(candList,
+                                                    candWord));
+        }
+        if (candWord) {
+            FcitxCandidateWordSetType(candWord, MSG_CANDIATE_CURSOR);
+            return IRV_FLAG_UPDATE_INPUT_WINDOW;
+        }
 
         if (FcitxHotkeyIsHotKeyDigit(sym, state))
             return IRV_TO_PROCESS;
 
         if (FcitxHotkeyIsHotKey(sym, state , FCITX_ENTER)) {
-            return FcitxCandidateWordChooseByIndex(FcitxInputStateGetCandidateList(input), 0);
+            do {
+                candWord = FcitxCandidateWordGetFocus(candList, true);
+                if (!candWord) {
+                    break;
+                }
+                // FcitxLog(INFO, "%d", FcitxCandidateWordGetIndex(candList, candWord));
+                return FcitxCandidateWordChooseByTotalIndex(candList,
+                                                            FcitxCandidateWordGetIndex(candList, candWord));
+            } while(0);
+            return FcitxCandidateWordChooseByIndex(candList, 0);
         }
 
         if (!hangul->fh.hanjaMode) {
@@ -494,7 +552,7 @@ void FcitxHangulUpdateLookupTable(FcitxHangul* hangul, boolean checkSurrounding)
                 unsigned int* idx = fcitx_utils_malloc0(sizeof(unsigned int));
                 *idx = i;
                 word.strWord = strdup(value);
-                word.wordType = MSG_INPUT;
+                word.wordType = (i == 0) ? MSG_CANDIATE_CURSOR : MSG_INPUT;
                 word.strExtra = NULL;
                 word.extraType = MSG_INPUT;
                 word.priv = idx;
@@ -502,6 +560,8 @@ void FcitxHangulUpdateLookupTable(FcitxHangul* hangul, boolean checkSurrounding)
                 word.callback = FcitxHangulGetCandWord;
                 FcitxCandidateWordAppend(candList, &word);
             }
+
+            FcitxCandidateWordSetFocus(candList, 0);
         }
     }
 }
@@ -532,7 +592,9 @@ void FcitxHangulFlush(FcitxHangul* hangul)
 boolean FcitxHangulInit(void* arg)
 {
     FcitxHangul* hangul = (FcitxHangul*) arg;
+    boolean flag = true;
     FcitxInstanceSetContext(hangul->owner, CONTEXT_IM_KEYBOARD_LAYOUT, "us");
+    FcitxInstanceSetContext(hangul->owner, CONTEXT_DISABLE_AUTO_FIRST_CANDIDATE_HIGHTLIGHT, &flag);
     return true;
 }
 
@@ -581,6 +643,7 @@ INPUT_RETURN_VALUE FcitxHangulGetCandWord (void* arg, FcitxCandidateWord* candWo
     if (!key || !value || !hic_preedit)
         return IRV_CLEAN;
 
+    // FcitxLog(INFO, "%s", key);
     key_len = fcitx_utf8_strlen(key);
     preedit_len = ustring_length(hangul->preedit);
     hic_preedit_len = ucs4_strlen (hic_preedit);
