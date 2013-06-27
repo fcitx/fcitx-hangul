@@ -4,12 +4,13 @@
 #
 # Translators:
 # Alisha <alisha.4m@gmail.com>, 2012
+# Xuetian Weng <wengxt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-26 20:12-0400\n"
-"PO-Revision-Date: 2013-04-29 10:03+0000\n"
+"POT-Creation-Date: 2013-06-26 22:02-0400\n"
+"PO-Revision-Date: 2013-06-27 00:21+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fcitx/"
 "language/zh_TW/)\n"
@@ -21,15 +22,15 @@ msgstr ""
 
 #: src/fcitx-hangul.desc:14
 msgid "Ahnmatae"
-msgstr ""
+msgstr "安馬太鍵盤"
 
 #: src/fcitx-hangul.desc:25
 msgid "Auto Reorder"
-msgstr ""
+msgstr "自動排序"
 
 #: src/fcitx-hangul.desc:6
 msgid "Dubeolsik"
-msgstr ""
+msgstr "Dubeolsik"
 
 #: src/fcitx-hangul.desc:7
 msgid "Dubeolsik Yetgeul"
@@ -47,19 +48,19 @@ msgstr "Fcitx 的韓文封裝"
 
 #: src/fcitx-hangul.desc:35
 msgid "Hanja Mode"
-msgstr ""
+msgstr "漢字模式"
 
 #: src/fcitx-hangul.desc:20
 msgid "Hanja Mode Toggle Key"
-msgstr ""
+msgstr "漢字模式切換鍵"
 
 #: src/fcitx-hangul.desc:4
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "鍵盤配置"
 
 #: src/fcitx-hangul.desc:13
 msgid "Romaja"
-msgstr ""
+msgstr "羅馬字"
 
 #: src/fcitx-hangul.desc:8
 msgid "Sebeolsik 390"
@@ -91,4 +92,4 @@ msgstr "使用漢字"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr ""
+msgstr "單字提交"

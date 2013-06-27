@@ -4,13 +4,14 @@
 #
 # Translators:
 # mar well <marwell.1980@freenet.de>, 2013
+# Xuetian Weng <wengxt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-26 20:12-0400\n"
-"PO-Revision-Date: 2013-05-22 06:22+0000\n"
-"Last-Translator: mar well <marwell.1980@freenet.de>\n"
+"POT-Creation-Date: 2013-06-26 22:02-0400\n"
+"PO-Revision-Date: 2013-06-27 00:23+0000\n"
+"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fcitx/language/"
 "de/)\n"
 "Language: de\n"
@@ -55,11 +56,11 @@ msgstr ""
 
 #: src/fcitx-hangul.desc:4
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tastaturlayout"
 
 #: src/fcitx-hangul.desc:13
 msgid "Romaja"
-msgstr ""
+msgstr "Romaja"
 
 #: src/fcitx-hangul.desc:8
 msgid "Sebeolsik 390"
