@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Xuetian Weng <wengxt@gmail.com>, 2013
 # Xuetian Weng <wengxt@gmail.com>, 2012
 # Xuetian Weng <wengxt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-26 20:12-0400\n"
-"PO-Revision-Date: 2013-04-29 10:03+0000\n"
+"POT-Creation-Date: 2013-06-27 10:32-0400\n"
+"PO-Revision-Date: 2013-06-27 14:27+0000\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fcitx/language/"
 "ko/)\n"
@@ -22,19 +23,19 @@ msgstr ""
 
 #: src/fcitx-hangul.desc:14
 msgid "Ahnmatae"
-msgstr ""
+msgstr "안마태"
 
 #: src/fcitx-hangul.desc:25
 msgid "Auto Reorder"
-msgstr ""
+msgstr "자동 재배열"
 
 #: src/fcitx-hangul.desc:6
 msgid "Dubeolsik"
-msgstr ""
+msgstr "두벌식"
 
 #: src/fcitx-hangul.desc:7
 msgid "Dubeolsik Yetgeul"
-msgstr ""
+msgstr "두벌식 옛글"
 
 #: src/eim.c:763 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
 #: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:17 src/fcitx-hangul.desc:22
@@ -48,39 +49,39 @@ msgstr "Fcitx의 한글 표지"
 
 #: src/fcitx-hangul.desc:35
 msgid "Hanja Mode"
-msgstr ""
+msgstr "한자 모드"
 
 #: src/fcitx-hangul.desc:20
 msgid "Hanja Mode Toggle Key"
-msgstr ""
+msgstr "한자 모드 변환 키"
 
 #: src/fcitx-hangul.desc:4
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "자판 배열"
 
 #: src/fcitx-hangul.desc:13
 msgid "Romaja"
-msgstr ""
+msgstr "로마자"
 
 #: src/fcitx-hangul.desc:8
 msgid "Sebeolsik 390"
-msgstr ""
+msgstr "세벌식 390"
 
 #: src/fcitx-hangul.desc:12
 msgid "Sebeolsik Dubeol Layout"
-msgstr ""
+msgstr "세벌식 두벌자판"
 
 #: src/fcitx-hangul.desc:9
 msgid "Sebeolsik Final"
-msgstr ""
+msgstr "세벌식 최종"
 
 #: src/fcitx-hangul.desc:10
 msgid "Sebeolsik Noshift"
-msgstr ""
+msgstr "세벌식 순아래"
 
 #: src/fcitx-hangul.desc:11
 msgid "Sebeolsik Yetgeul"
-msgstr ""
+msgstr "세벌식 옛글"
 
 #: src/eim.c:817
 msgid "Use Hangul"
@@ -92,4 +93,4 @@ msgstr "한자 사용"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr ""
+msgstr "워드 커밋"
