@@ -405,7 +405,7 @@ void FcitxHangulUpdatePreedit(FcitxHangul* hangul)
 
 HanjaList* FcitxHangulLookupTable(FcitxHangul* hangul, const char* key, int method)
 {
-    HanjaList* list;
+    HanjaList* list = NULL;
 
     if (key == NULL)
         return NULL;
