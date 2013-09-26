@@ -722,6 +722,7 @@ void* FcitxHangulCreate (FcitxInstance* instance)
 {
     FcitxHangul* hangul = (FcitxHangul*) fcitx_utils_malloc0(sizeof(FcitxHangul));
     bindtextdomain("fcitx-hangul", LOCALEDIR);
+    bind_textdomain_codeset("fcitx-hangul", "UTF-8");
     hangul->owner = instance;
     hangul->lastLookupMethod = LOOKUP_METHOD_PREFIX;
     if (!LoadHangulConfig(&hangul->fh))
