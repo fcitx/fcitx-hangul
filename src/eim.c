@@ -136,11 +136,10 @@ char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int leng
 void FcitxHangulReset (void* arg)
 {
     FcitxHangul* hangul = (FcitxHangul*) arg;
-    ustring_clear(hangul->preedit);
-    hangul_ic_reset(hangul->ic);
-    if (hangul->hanjaList) {
-        FcitxHangulCleanLookupTable(hangul);
+    if (hangul->preedit) {
+        FcitxHangulFlush(hangul);
     }
+    hangul_ic_reset(hangul->ic);
 }
 
 /**
