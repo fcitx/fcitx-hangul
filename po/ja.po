@@ -3,17 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# しろう, 2013
-# Xuetian Weng <wengxt@gmail.com>, 2013
+# WAKAYAMA Shirou <shirou.faw@gmail.com>, 2013
+# csslayer <wengxt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-26 22:02-0400\n"
+"POT-Creation-Date: 2015-07-08 18:02+0200\n"
 "PO-Revision-Date: 2013-06-27 00:23+0000\n"
-"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
-"ja/)\n"
+"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/p/fcitx/language/ja/)\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +35,7 @@ msgstr "Dubeolsik"
 msgid "Dubeolsik Yetgeul"
 msgstr "Dubeolsik Yetgeul"
 
-#: src/eim.c:763 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
+#: src/eim.c:764 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
 #: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:17 src/fcitx-hangul.desc:22
 #: src/fcitx-hangul.desc:27 src/fcitx-hangul.desc:32
 msgid "Hangul"
@@ -82,11 +81,11 @@ msgstr "Sebeolsik Noshift"
 msgid "Sebeolsik Yetgeul"
 msgstr "Sebeolsik Yetgeul"
 
-#: src/eim.c:817
+#: src/eim.c:818
 msgid "Use Hangul"
 msgstr "ハングルを使う"
 
-#: src/eim.c:814
+#: src/eim.c:815
 msgid "Use Hanja"
 msgstr "朝鮮漢字を使う"
 
