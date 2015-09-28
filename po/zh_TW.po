@@ -4,15 +4,16 @@
 #
 # Translators:
 # Alisha <alisha.4m@gmail.com>, 2012
+# Jeff Huang <s8321414@gmail.com>, 2015
 # csslayer <wengxt@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-07-21 12:01+0200\n"
-"PO-Revision-Date: 2013-06-27 00:21+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fcitx/"
+"POT-Creation-Date: 2015-09-28 18:01+0200\n"
+"PO-Revision-Date: 2015-09-28 14:32+0000\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/fcitx/fcitx/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +35,7 @@ msgstr "Dubeolsik"
 
 #: src/fcitx-hangul.desc:7
 msgid "Dubeolsik Yetgeul"
-msgstr ""
+msgstr "Dubeolsik Yetgeul"
 
 #: src/eim.c:764 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
 #: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:17 src/fcitx-hangul.desc:22
@@ -64,23 +65,23 @@ msgstr "羅馬字"
 
 #: src/fcitx-hangul.desc:8
 msgid "Sebeolsik 390"
-msgstr ""
+msgstr "Sebeolsik 390"
 
 #: src/fcitx-hangul.desc:12
 msgid "Sebeolsik Dubeol Layout"
-msgstr ""
+msgstr "Sebeolsik Dubeol Layout"
 
 #: src/fcitx-hangul.desc:9
 msgid "Sebeolsik Final"
-msgstr ""
+msgstr "Sebeolsik Final"
 
 #: src/fcitx-hangul.desc:10
 msgid "Sebeolsik Noshift"
-msgstr ""
+msgstr "Sebeolsik Noshift"
 
 #: src/fcitx-hangul.desc:11
 msgid "Sebeolsik Yetgeul"
-msgstr ""
+msgstr "Sebeolsik Yetgeul"
 
 #: src/eim.c:818
 msgid "Use Hangul"
