@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Bon Keun Seo <scobyseo@gmail.com>, 2017
 # csslayer <wengxt@gmail.com>, 2013
 # csslayer <wengxt@gmail.com>, 2012
 # csslayer <wengxt@gmail.com>, 2012
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2015-08-03 18:01+0200\n"
-"PO-Revision-Date: 2013-06-27 14:27+0000\n"
-"Last-Translator: csslayer <wengxt@gmail.com>\n"
+"POT-Creation-Date: 2017-07-08 05:02-0700\n"
+"PO-Revision-Date: 2017-07-08 11:51+0000\n"
+"Last-Translator: Bon Keun Seo <scobyseo@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -92,4 +93,4 @@ msgstr "한자 사용"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr "워드 커밋"
+msgstr "단어 단위 입력"
