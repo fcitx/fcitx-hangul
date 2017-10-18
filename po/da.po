@@ -1,55 +1,72 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
+# scootergrisen, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-06-13 12:02-0700\n"
-"PO-Revision-Date: 2012-03-17 06:22+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-10-18 06:03-0700\n"
+"PO-Revision-Date: 2017-10-18 12:57+0000\n"
+"Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/fcitx/fcitx/language/da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/fcitx-hangul.desc:14
+msgid "Ahnmatae"
+msgstr "Ahnmatae"
+
+#: src/fcitx-hangul.desc:25
+msgid "Auto Reorder"
+msgstr ""
+
+#: src/fcitx-hangul.desc:6
+msgid "Dubeolsik"
+msgstr "Dubeolsik"
+
+#: src/fcitx-hangul.desc:7
+msgid "Dubeolsik Yetgeul"
+msgstr "Dubeolsik Yetgeul"
 
 #: src/eim.c:764 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
 #: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:17 src/fcitx-hangul.desc:22
 #: src/fcitx-hangul.desc:27 src/fcitx-hangul.desc:32
 msgid "Hangul"
-msgstr ""
-
-#: src/eim.c:815
-msgid "Use Hanja"
-msgstr ""
-
-#: src/eim.c:818
-msgid "Use Hangul"
-msgstr ""
+msgstr "Hangul"
 
 #: src/fcitx-hangul.conf.in:4
 msgid "Hangul Wrapper For Fcitx"
-msgstr ""
+msgstr "Hangul-wrapper til Fcitx"
+
+#: src/fcitx-hangul.desc:35
+msgid "Hanja Mode"
+msgstr "Hanja-tilstand"
+
+#: src/fcitx-hangul.desc:20
+msgid "Hanja Mode Toggle Key"
+msgstr "Tast til at skifte Hanja-tilstand"
 
 #: src/fcitx-hangul.desc:4
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tastaturlayout"
 
-#: src/fcitx-hangul.desc:6
-msgid "Dubeolsik"
-msgstr ""
-
-#: src/fcitx-hangul.desc:7
-msgid "Dubeolsik Yetgeul"
-msgstr ""
+#: src/fcitx-hangul.desc:13
+msgid "Romaja"
+msgstr "Romaja"
 
 #: src/fcitx-hangul.desc:8
 msgid "Sebeolsik 390"
-msgstr ""
+msgstr "Sebeolsik 390"
+
+#: src/fcitx-hangul.desc:12
+msgid "Sebeolsik Dubeol Layout"
+msgstr "Sebeolsik Dubeol-layout"
 
 #: src/fcitx-hangul.desc:9
 msgid "Sebeolsik Final"
@@ -63,30 +80,14 @@ msgstr ""
 msgid "Sebeolsik Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:12
-msgid "Sebeolsik Dubeol Layout"
-msgstr ""
+#: src/eim.c:818
+msgid "Use Hangul"
+msgstr "Brug Hangul"
 
-#: src/fcitx-hangul.desc:13
-msgid "Romaja"
-msgstr ""
-
-#: src/fcitx-hangul.desc:14
-msgid "Ahnmatae"
-msgstr ""
-
-#: src/fcitx-hangul.desc:20
-msgid "Hanja Mode Toggle Key"
-msgstr ""
-
-#: src/fcitx-hangul.desc:25
-msgid "Auto Reorder"
-msgstr ""
+#: src/eim.c:815
+msgid "Use Hanja"
+msgstr "Brug Hanja"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr ""
-
-#: src/fcitx-hangul.desc:35
-msgid "Hanja Mode"
 msgstr ""
