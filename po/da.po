@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-10-18 06:03-0700\n"
-"PO-Revision-Date: 2017-10-18 12:57+0000\n"
+"POT-Creation-Date: 2017-10-19 00:03-0700\n"
+"PO-Revision-Date: 2017-10-18 23:26+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/fcitx/fcitx/language/da/)\n"
 "Language: da\n"
@@ -24,7 +24,7 @@ msgstr "Ahnmatae"
 
 #: src/fcitx-hangul.desc:25
 msgid "Auto Reorder"
-msgstr ""
+msgstr "Automatisk genplacering"
 
 #: src/fcitx-hangul.desc:6
 msgid "Dubeolsik"
@@ -70,15 +70,15 @@ msgstr "Sebeolsik Dubeol-layout"
 
 #: src/fcitx-hangul.desc:9
 msgid "Sebeolsik Final"
-msgstr ""
+msgstr "Sebeolsik Final"
 
 #: src/fcitx-hangul.desc:10
 msgid "Sebeolsik Noshift"
-msgstr ""
+msgstr "Sebeolsik Noshift"
 
 #: src/fcitx-hangul.desc:11
 msgid "Sebeolsik Yetgeul"
-msgstr ""
+msgstr "Sebeolsik Yetgeul"
 
 #: src/eim.c:818
 msgid "Use Hangul"
@@ -90,4 +90,4 @@ msgstr "Brug Hanja"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr ""
+msgstr "Ordbegå"
