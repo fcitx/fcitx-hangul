@@ -4,10 +4,11 @@
 #
 # Translators:
 # Bon Keun Seo <scobyseo@gmail.com>, 2017
-# Bruce Lee <daemul72@gmail.com>, 2021
+# Jung Hee Lee <daemul72@gmail.com>, 2021
 # csslayer <wengxt@gmail.com>, 2012-2013
-# Bruce Lee <daemul72@gmail.com>, 2020
-# Bruce Lee <daemul72@gmail.com>, 2020
+# Jung Hee Lee <daemul72@gmail.com>, 2020
+# Jung Hee Lee <daemul72@gmail.com>, 2020
+# perillamint <perillamint@quendi.moe>, 2021
 # csslayer <wengxt@gmail.com>, 2013
 # csslayer <wengxt@gmail.com>, 2012
 # csslayer <wengxt@gmail.com>, 2012
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2021-02-10 20:26+0000\n"
-"PO-Revision-Date: 2021-02-10 14:46+0000\n"
-"Last-Translator: Bruce Lee <daemul72@gmail.com>\n"
+"POT-Creation-Date: 2021-06-05 20:27+0000\n"
+"PO-Revision-Date: 2021-06-05 03:25+0000\n"
+"Last-Translator: perillamint <perillamint@quendi.moe>\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +50,7 @@ msgstr "한글"
 
 #: src/fcitx-hangul.conf.in:4
 msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx의 한글 표지"
+msgstr "Fcitx의 한글 래퍼"
 
 #: src/fcitx-hangul.desc:35
 msgid "Hanja Mode"
@@ -97,4 +98,4 @@ msgstr "한자 사용"
 
 #: src/fcitx-hangul.desc:30
 msgid "Word Commit"
-msgstr "단어 입력완료"
+msgstr "단어 단위 입력"
