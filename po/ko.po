@@ -4,10 +4,11 @@
 #
 # Translators:
 # Bon Keun Seo <scobyseo@gmail.com>, 2017
-# Jung Hee Lee <daemul72@gmail.com>, 2021
+# Junghee Lee <daemul72@gmail.com>, 2021
 # csslayer <wengxt@gmail.com>, 2012-2013
-# Jung Hee Lee <daemul72@gmail.com>, 2020
-# Jung Hee Lee <daemul72@gmail.com>, 2020
+# Junghee Lee <daemul72@gmail.com>, 2020
+# Junghee Lee <daemul72@gmail.com>, 2022
+# Junghee Lee <daemul72@gmail.com>, 2020
 # perillamint <perillamint@quendi.moe>, 2021
 # csslayer <wengxt@gmail.com>, 2013
 # csslayer <wengxt@gmail.com>, 2012
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2021-06-05 20:27+0000\n"
-"PO-Revision-Date: 2021-06-05 03:25+0000\n"
-"Last-Translator: perillamint <perillamint@quendi.moe>\n"
+"POT-Creation-Date: 2022-04-10 20:28+0000\n"
+"PO-Revision-Date: 2012-03-17 06:22+0000\n"
+"Last-Translator: Junghee Lee <daemul72@gmail.com>, 2022\n"
 "Language-Team: Korean (http://www.transifex.com/fcitx/fcitx/language/ko/)\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +51,7 @@ msgstr "한글"
 
 #: src/fcitx-hangul.conf.in:4
 msgid "Hangul Wrapper For Fcitx"
-msgstr "Fcitx의 한글 래퍼"
+msgstr "Fcitx용 한글 래퍼"
 
 #: src/fcitx-hangul.desc:35
 msgid "Hanja Mode"
@@ -74,7 +75,7 @@ msgstr "세벌식 390"
 
 #: src/fcitx-hangul.desc:12
 msgid "Sebeolsik Dubeol Layout"
-msgstr "세벌식 두벌자판"
+msgstr "세벌식 두벌 자판"
 
 #: src/fcitx-hangul.desc:9
 msgid "Sebeolsik Final"
